@@ -10,5 +10,5 @@
 
 ---
 
-![alt text](image.png)
+![alt text](Imagenes/image.png)
 
