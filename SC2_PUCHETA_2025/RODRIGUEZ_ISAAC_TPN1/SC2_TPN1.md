@@ -3,23 +3,17 @@
 ## Tabla de contenidos
 1. [Objetivo](#objetivo)
 
-2. [Caso 1: Circuito RLC](#caso-1-circuito-rlc-2-variables-de-estado)
-    - [A. Simulación con entrada tipo escalón](#1-simulación-con-entrada-tipo-escalón)
-    - [B. Estimación de R, L y C a partir de datos experimentales](#2-estimación-de-r-l-y-c-a-partir-de-datos-experimentales)
-    - [C. Validación con curva de corriente medida](#3-validación-con-curva-de-corriente-medida)
-    - [D. Código en Matlab Caso 1](#código-en-matlab_Caso_1)
+2. [Caso 1: Circuito RLC](#caso-1-circuito-rlc)
+    - [A. Simulación con entrada tipo escalón](#a-simulación-con-entrada-tipo-escalón)
+    - [B. Estimación de R, L y C a partir de datos experimentales](#b-estimación-de-r-l-y-c-a-partir-de-datos-experimentales)
+    - [C. Validación con curva de corriente medida](#c-validación-con-curva-de-corriente-medida)
+    - [D. Código en Matlab Caso 1](#d-código-en-matlab-caso-1)
 
 3. [Caso 2: Motor de Corriente Continua (3 variables de estado)](#caso-2-motor-de-corriente-continua-3-variables-de-estado)
-
-    - [A. Simulación para determinar el torque máximo](#1-simulación-para-determinar-el-torque-máximo)
-
-    - [B. Estimación del modelo dinámico con método de Chen](#2-estimación-del-modelo-dinámico-con-método-de-chen)
-
-    - [C. Implementación de control PID en tiempo discreto](#3-implementación-de-control-pid-en-tiempo-discreto)
-
-    - [D. Código en Matlab Caso 2](#código-en-matlab_Caso_2)
-
-
+    - [A. Simulación para determinar el torque máximo](#a-simulación-para-determinar-el-torque-máximo)
+    - [B. Estimación del modelo dinámico con método de Chen](#b-estimación-del-modelo-dinámico-con-método-de-chen)
+    - [C. Implementación de control PID en tiempo discreto](#c-implementación-de-control-pid-en-tiempo-discreto)
+    - [D. Código en Matlab Caso 2](#d-código-en-matlab-caso-2)
 
 4. [Conclusiones](#conclusiones)
 
@@ -287,31 +281,53 @@ grid on;
 
 # Caso 2: Motor de Corriente Continua (3 variables de estado)
 
+![
+](<../Imagenes Caso 2/enunciado Caso2.png>)
 
-
-
-
-
-
+![alt text](<../Imagenes Caso 2/graficas.png>)
 
 
 ### A. Simulación para determinar el torque máximo
 
+En esta etapa, se simula el comportamiento del motor bajo diferentes condiciones de carga para identificar el torque máximo que permite un funcionamiento estable. Se utiliza el método de Euler para integrar las ecuaciones diferenciales que describen el sistema.
+
+![
+](<../Imagenes Caso 2/curvas1.png>)
+
+Se crea un codigo para buscar el TLmax, que nos da lo siguiente: 
+
+![
+](<../Imagenes Caso 2/torquemax.png>)
+
+Al probar nuevamente con ese valor obtenemos: 
+
+![alt text](<../Imagenes Caso 2/curva2.png>)
 
 ### B. Estimación del modelo dinámico con método de Chen
 
+Se aplica el método de Chen para estimar un modelo dinámico del motor a partir de datos experimentales. Este método permite obtener una función de transferencia que representa el comportamiento del sistema.
+
+Partimos de las graficas proporcionadas mediante mediciones reales de un sistema en funcionamiento.
+
+![alt text](<../Imagenes Caso 2/Grafica_Excel.png>)
+
+Aplicamos el metodo de chen y obtenemos lo siguiente: 
+
+![alt text](<../Imagenes Caso 2/CurvaChen.png>)
+
+![alt text](<../Imagenes Caso 2/FT_CHEN.JPG>)
+
+
 ### C. Implementación de control PID en tiempo discreto
 
+En esta sección, se diseña e implementa un controlador PID en tiempo discreto para regular la posición angular del motor. Se busca mejorar la respuesta del sistema ante variaciones en la referencia y perturbaciones externas.
 
 ### D. Código en Matlab Caso 2
 
-
+Se presenta el código desarrollado en MATLAB que implementa las simulaciones, la estimación del modelo y el diseño del controlador PID. Este código permite reproducir los resultados obtenidos en las secciones anteriores.
 
 ```matlab
 % Fragmentos clave de simulación y análisis
-
-
-
 
 
 ```
