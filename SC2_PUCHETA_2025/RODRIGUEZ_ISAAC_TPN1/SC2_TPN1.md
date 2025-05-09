@@ -2,14 +2,26 @@
 
 ## Tabla de contenidos
 1. [Objetivo](#objetivo)
+
 2. [Caso 1: Circuito RLC](#caso-1-circuito-rlc-2-variables-de-estado)
-    - [1. Simulación con entrada tipo escalón](#1-simulación-con-entrada-tipo-escalón)
-    - [2. Estimación de R, L y C a partir de datos experimentales](#2-estimación-de-r-l-y-c-a-partir-de-datos-experimentales)
-    - [3. Validación con curva de corriente medida](#3-validación-con-curva-de-corriente-medida)
-    - [4. Código en Matlab Caso 1](#código-en-matlab_Caso_1)
+    - [A. Simulación con entrada tipo escalón](#1-simulación-con-entrada-tipo-escalón)
+    - [B. Estimación de R, L y C a partir de datos experimentales](#2-estimación-de-r-l-y-c-a-partir-de-datos-experimentales)
+    - [C. Validación con curva de corriente medida](#3-validación-con-curva-de-corriente-medida)
+    - [D. Código en Matlab Caso 1](#código-en-matlab_Caso_1)
+
 3. [Caso 2: Motor de Corriente Continua (3 variables de estado)](#caso-2-motor-de-corriente-continua-3-variables-de-estado)
-   - [Código en Matlab Caso 2](#código-en-matlab_Caso_2)
-6. [Conclusiones](#conclusiones)
+
+    - [A. Simulación para determinar el torque máximo](#1-simulación-para-determinar-el-torque-máximo)
+
+    - [B. Estimación del modelo dinámico con método de Chen](#2-estimación-del-modelo-dinámico-con-método-de-chen)
+
+    - [C. Implementación de control PID en tiempo discreto](#3-implementación-de-control-pid-en-tiempo-discreto)
+
+    - [D. Código en Matlab Caso 2](#código-en-matlab_Caso_2)
+
+
+
+4. [Conclusiones](#conclusiones)
 
 ---
 
@@ -27,7 +39,7 @@ El objetivo del presente trabajo es modelar y analizar diferentes sistemas diná
 ![
 ](<Imagenes/Variables estado.png>)
 
-### 1. Simulación con entrada tipo escalón
+### A. Simulación con entrada tipo escalón
 
 Al simular podemos ver el comportamiento de tension y corriente en el capacitor.
 
@@ -36,7 +48,7 @@ Al simular podemos ver el comportamiento de tension y corriente en el capacitor.
 
 El circuito RLC se comporta así porque está subamortiguado: la combinación de inductancia y capacitancia genera oscilaciones cada vez que cambia la entrada tipo escalon. Como la resistencia no es suficientemente alta para amortiguarlas rápidamente, la corriente y la tensión en el capacitor muestran un comportamiento ondulante con resonancia antes de estabilizarse.
 
-### 2. Estimación de R, L y C a partir de datos experimentales
+### B. Estimación de R, L y C a partir de datos experimentales
 
 Se utilizan los datos del archivo `Curvas_Medidas_RLC_2025.xls`, específicamente la hoja 1, que contiene los valores temporales de la respuesta del sistema ante una entrada escalón, considerando como salida la **tensión en el capacitor**.  
 Se aplica el **método de la respuesta al escalón(CHEN)** para estimar los parámetros \( R, L, C \).  
@@ -62,7 +74,7 @@ Se podria hacer analiticamente pero sin embargo lo vamos a hacer por programa. E
 
 ---
 
-### 3. Validación con curva de corriente medida
+### C. Validación con curva de corriente medida
 
 Una vez obtenidos los parámetros estimados, se vuelve a simular el circuito y se superpone la curva simulada con la **curva medida de la corriente** (disponible a partir de 0.05 s), comparando ambas gráficas.
 
@@ -73,7 +85,10 @@ Una vez obtenidos los parámetros estimados, se vuelve a simular el circuito y s
 
 Con los nuevos datos obtenidos podemos comparar las graficas de corriente y superponiendolas. 
 
-### 4. Código en Matlab Caso 1
+
+### D. Código en Matlab Caso 1
+
+Una innovación destacada en el código fue la automatización de ciertos procesos de cálculo. En lugar de seleccionar manualmente tres puntos y verificar si los valores de alpha eran positivos —o buscar una representación que resultara aceptable—, se implementó un mecanismo de iteración sobre los valores de la tabla. Esta iteración se ejecuta hasta que se cumple la condición de que todos los valores de alpha sean positivos, lo que garantiza que se obtenga una solución adecuada de forma automática.
 
 ```matlab
 % Fragmentos clave de simulación y análisis
@@ -196,7 +211,9 @@ vc_trunc = vc(idx_escalon : idx_escalon + length(t_sim) - 1);
 
 % Gráfico final
 figure;
-plot(t_sim, vc_trunc, 'b', 'LineWidth', 1.5); hold on;  %%HOJA DE EXCEL
+plot(t_sim, vc_trunc, 'b', 'LineWidth', 1.5); hold on;  
+
+%%HOJA DE EXCEL
 plot(t_sim, ysim, 'g--', 'LineWidth', 1.5);  %CHEN
 legend('Medido: v_C(t)', 'Simulado: G(s)', 'Location', 'Southeast');
 title('Comparación extendida: curva medida vs modelo estimado');
@@ -268,16 +285,33 @@ grid on;
 ```
 ---
 
-
 # Caso 2: Motor de Corriente Continua (3 variables de estado)
 
-📌 *(Este apartado se desarrolla luego de terminar el Caso 1, ver ítems [4] a [8] del enunciado)*
 
----
 
-## 5. Código en Matlab Caso 2
+
+
+
+
+
+
+### A. Simulación para determinar el torque máximo
+
+
+### B. Estimación del modelo dinámico con método de Chen
+
+### C. Implementación de control PID en tiempo discreto
+
+
+### D. Código en Matlab Caso 2
+
+
 
 ```matlab
 % Fragmentos clave de simulación y análisis
 
-## 6
+
+
+
+
+```
