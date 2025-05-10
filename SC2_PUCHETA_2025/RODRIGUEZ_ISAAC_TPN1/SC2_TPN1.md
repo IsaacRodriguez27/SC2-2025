@@ -291,17 +291,15 @@ grid on;
 
 En esta etapa, se simula el comportamiento del motor bajo diferentes condiciones de carga para identificar el torque máximo que permite un funcionamiento estable. Se utiliza el método de Euler para integrar las ecuaciones diferenciales que describen el sistema.
 
-![
-](<../Imagenes Caso 2/curvas1.png>)
+![alt text](../Imagenes_Caso_2/curvas1.png)
 
 Se crea un codigo para buscar el TLmax, que nos da lo siguiente: 
 
-![
-](<../Imagenes Caso 2/torquemax.png>)
+![alt text](../Imagenes_Caso_2/torquemax.png)
 
 Al probar nuevamente con ese valor obtenemos: 
 
-![alt text](<../Imagenes Caso 2/curva2.png>)
+![alt text](../Imagenes_Caso_2/curva2.png)
 
 ### B. Estimación del modelo dinámico con método de Chen
 
@@ -309,13 +307,13 @@ Se aplica el método de Chen para estimar un modelo dinámico del motor a partir
 
 Partimos de las graficas proporcionadas mediante mediciones reales de un sistema en funcionamiento.
 
-![alt text](<../Imagenes Caso 2/Grafica_Excel.png>)
+![alt text](../Imagenes_Caso_2/Grafica_Excel.png)
 
 Aplicamos el metodo de chen y obtenemos lo siguiente: 
 
-![alt text](<../Imagenes Caso 2/CurvaChen.png>)
+![alt text](../Imagenes_Caso_2/CurvaChen.png)
 
-![alt text](<../Imagenes Caso 2/FT_CHEN.JPG>)
+![alt text](../Imagenes_Caso_2/FT_CHEN.JPG)
 
 
 ### C. Implementación de control PID en tiempo discreto
