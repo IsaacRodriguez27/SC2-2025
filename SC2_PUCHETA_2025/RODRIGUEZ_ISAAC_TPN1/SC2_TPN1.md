@@ -283,7 +283,9 @@ grid on;
 
 ![alt text](<../Imagenes_Caso_2/enunciado Caso2.png>)
 
-![](../Imagenes_Caso_2/graficas.png)
+
+![alt text](../Imagenes_Caso_2/graficas.png)
+
 
 ### A. Simulación para determinar el torque máximo
 
@@ -315,6 +317,7 @@ Aplicamos el metodo de chen y obtenemos lo siguiente:
 
 
 ![alt text](../Imagenes_Caso_2/FT_CHEN.JPG)
+
 
 
 ### C. Implementación de control PID en tiempo discreto
