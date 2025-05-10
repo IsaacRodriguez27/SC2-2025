@@ -281,10 +281,9 @@ grid on;
 
 # Caso 2: Motor de Corriente Continua (3 variables de estado)
 
-![
-](<../Imagenes Caso 2/enunciado Caso2.png>)
+![alt text](<../Imagenes_Caso_2/enunciado Caso2.png>)
 
-![alt text](<../Imagenes Caso 2/graficas.png>)
+![alt text](../Imagenes_Caso_2/graficas.png)
 
 
 ### A. Simulación para determinar el torque máximo
