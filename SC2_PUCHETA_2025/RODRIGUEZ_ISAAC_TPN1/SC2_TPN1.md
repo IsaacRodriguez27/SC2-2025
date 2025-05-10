@@ -283,8 +283,7 @@ grid on;
 
 ![alt text](<../Imagenes_Caso_2/enunciado Caso2.png>)
 
-![alt text](../Imagenes_Caso_2/graficas.png)
-
+![](../Imagenes_Caso_2/graficas.png)
 
 ### A. Simulación para determinar el torque máximo
 
@@ -308,9 +307,12 @@ Partimos de las graficas proporcionadas mediante mediciones reales de un sistema
 
 ![alt text](../Imagenes_Caso_2/Grafica_Excel.png)
 
+
 Aplicamos el metodo de chen y obtenemos lo siguiente: 
 
+
 ![alt text](../Imagenes_Caso_2/CurvaChen.png)
+
 
 ![alt text](../Imagenes_Caso_2/FT_CHEN.JPG)
 
